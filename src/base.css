@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap');
+
+:root {
+  --color-white: oklch(1 0 0);
+  --color-white-inactive: oklch(1 0 0 / 50%);
+  --color-bg: oklch(0.3089 0.0187 201.69);
+  --color-fg: oklch(0.9664 0.0059 59.65);
+  --color-fg-inactive: oklch(0.8109 0.0044 197.07);
+  --color-secondary: oklch(0.661 0.0355 177.14);
+  --color-active: oklch(0.7045 0.0781 173.97);
+
+  --font: 'Alegreya Sans', sans-serif;
+}
+
+html,
+body {
+  font-family: var(--font);
+}
