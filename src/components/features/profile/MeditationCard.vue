@@ -20,6 +20,9 @@ const { title, description, duration } = defineProps<MeditationCardProps>()
 
 <style scoped>
 .meditation-card {
+  max-width: 270px;
+  width: 100%;
+
   padding: 22px 30px;
   display: flex;
   flex-direction: column;
