@@ -19,6 +19,7 @@ async function checkEmotion() {
     })
     success.value = true
   } catch (err) {
+    console.error(err)
     success.value = false
   } finally {
     loading.value = false

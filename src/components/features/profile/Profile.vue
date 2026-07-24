@@ -11,22 +11,22 @@ const feelings = [
   {
     icon: YinYangIcon,
     text: 'Calm',
-    type: "feeling_calm"
+    type: 'feeling_calm',
   },
   {
     icon: AirIcon,
     text: 'Relaxed',
-    type: "feeling_relax"
+    type: 'feeling_relax',
   },
   {
     icon: MeditatorIcon,
     text: 'Focused',
-    type: "feeling_focus"
+    type: 'feeling_focus',
   },
   {
     icon: SpiralIcon,
     text: 'Worried',
-    type: "feeling_anxious"
+    type: 'feeling_anxious',
   },
 ]
 
@@ -35,7 +35,6 @@ const profileStore = useProfileStore()
 onMounted(() => {
   profileStore.fetchProfile()
 })
-
 </script>
 
 <template>
