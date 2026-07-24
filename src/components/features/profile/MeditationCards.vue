@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useMeditationStore } from '@/stores/meditation.store'
+import { useMeditationStore } from '@/components/shared/stores/meditation.store.ts'
 import { onMounted } from 'vue'
 import MeditationCard from './MeditationCard.vue'
 

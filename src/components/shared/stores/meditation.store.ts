@@ -1,4 +1,4 @@
-import { API_ROUTES, http, type Response } from '@/constants/api'
+import { API_ROUTES, http, type Response } from '@/components/shared/constants/api'
 import type { Meditation } from '@/typescript/meditation.types'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
