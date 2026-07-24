@@ -11,18 +11,22 @@ const feelings = [
   {
     icon: YinYangIcon,
     text: 'Calm',
+    type: "feeling_calm"
   },
   {
     icon: AirIcon,
     text: 'Relaxed',
+    type: "feeling_relax"
   },
   {
     icon: MeditatorIcon,
     text: 'Focused',
+    type: "feeling_focus"
   },
   {
     icon: SpiralIcon,
     text: 'Worried',
+    type: "feeling_anxious"
   },
 ]
 
@@ -53,6 +57,7 @@ onMounted(() => {
         :key="feeling.text"
         :icon="feeling.icon"
         :text="feeling.text"
+        :type="feeling.type"
       />
     </div>
   </div>

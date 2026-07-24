@@ -8,6 +8,7 @@ export const API_ROUTES = {
   register: `/auth/register`,
   login: `/auth/login`,
   profile: `/profile`,
+  stats: `/stats`,
 }
 
 export const http = axios.create({
