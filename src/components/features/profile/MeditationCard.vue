@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import PlayIcon from '@/icons/PlayIcon.vue';
+import PlayIcon from '@/components/icons/PlayIcon.vue';
 import type { MeditationCardProps } from '@/typescript/meditation.types';
 
 const { title, description, duration } = defineProps<MeditationCardProps>()
@@ -20,6 +20,9 @@ const { title, description, duration } = defineProps<MeditationCardProps>()
 
 <style scoped>
 .meditation-card {
+  max-width: 270px;
+  width: 100%;
+
   padding: 22px 30px;
   display: flex;
   flex-direction: column;
@@ -37,7 +40,7 @@ const { title, description, duration } = defineProps<MeditationCardProps>()
   color: var(--color-primary);
 }
 .title {
-  font-size: 1.5625rem; 
+  font-size: 1.5625rem;
 }
 .description {
   font-size: 0.875rem;

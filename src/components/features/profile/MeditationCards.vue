@@ -31,8 +31,10 @@ onMounted(() => {
 
 <style scoped>
 .cards {
+  flex-shrink: 1;
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 .loading {
   color: var(--color-white);
