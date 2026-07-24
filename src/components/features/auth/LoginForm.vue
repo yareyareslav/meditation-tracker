@@ -41,6 +41,7 @@ function login(e: Event) {
     <Input type="password" placeholder="Password" v-model="form.password" />
     <Button type="submit" class="login-form__button">Log in</Button>
   </form>
+  <RouterLink :to="{ name: 'Register' }">Sign up</RouterLink>
 </template>
 
 <style scoped>

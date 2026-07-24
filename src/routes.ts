@@ -6,6 +6,9 @@ export const router = createRouter({
   routes: [
     {
       path: '/auth',
+      redirect: {
+        name: 'Login',
+      },
       component: () => import('./components/views/AuthView.vue'),
       children: [
         {
@@ -22,6 +25,9 @@ export const router = createRouter({
     },
     {
       path: '/',
+      redirect: {
+        name: 'Main',
+      },
       component: () => import('./components/views/MainView.vue'),
       children: [
         {
