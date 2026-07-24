@@ -25,15 +25,18 @@ export const router = createRouter({
       children: [
         {
           path: "/meditations",
-          component: () => import("./components/pages/main/MeditationsPage.vue")
+          component: () => import("./components/pages/main/MeditationsPage.vue"),
+          name: "Main"
         },
         {
           path: "/meditations/:id",
-          component: () => import("./components/pages/main/MeditationsIdPage.vue")
+          component: () => import("./components/pages/main/MeditationsIdPage.vue"),
+          name: "Meditation"
         },
         {
           path: "/stats",
-          component: () => import("./components/pages/main/StatsPage.vue")
+          component: () => import("./components/pages/main/StatsPage.vue"),
+          name: "Stats"
         }
       ]
     },

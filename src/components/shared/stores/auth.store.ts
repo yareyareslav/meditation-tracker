@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { API_ROUTES, client, type JWT, type Response, type User } from '../constants/api'
 
 const JWT_TOKEN_KEY = 'jwt'
@@ -7,12 +7,7 @@ const JWT_TOKEN_KEY = 'jwt'
 export const useAuthStore = defineStore('auth', () => {
   const token = ref<string | null>(null)
 
-  function getToken() {
-    if (token.value === null) {
-      token.value = localStorage.getItem(JWT_TOKEN_KEY)
-    }
-    return token.value
-  }
+  const getToken = computed(() => token.value || localStorage.getItem(JWT_TOKEN_KEY))
 
   function setToken(newToken: string) {
     token.value = newToken
@@ -20,15 +15,11 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   async function login(username: string, password: string) {
-    try {
-      const res = await client.post<Response<JWT & User>>(API_ROUTES.login, {
-        username: username,
-        password: password,
-      })
-      setToken(res.data.data.token)
-    } catch (err) {
-      console.error(err)
-    }
+    const res = await client().post<Response<JWT & User>>(API_ROUTES.login, {
+      username: username,
+      password: password,
+    })
+    setToken(res.data.data.token)
   }
 
   async function register({
@@ -41,7 +32,7 @@ export const useAuthStore = defineStore('auth', () => {
     password: string
   }) {
     try {
-      await client.post<Response<User>>(API_ROUTES.register, {
+      await client().post<Response<User>>(API_ROUTES.register, {
         username: username,
         email: email,
         password: password,

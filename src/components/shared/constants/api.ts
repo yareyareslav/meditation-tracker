@@ -17,14 +17,16 @@ export const http = axios.create({
   },
 })
 
-const authStore = useAuthStore()
-export const client = axios.create({
-  baseURL: BACKEND_API,
-  headers: {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${authStore.getToken()}`,
-  },
-})
+export function client() {
+  const authStore = useAuthStore()
+  return axios.create({
+    baseURL: BACKEND_API,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authStore.getToken}`,
+    },
+  })
+}
 
 export type Response<T> = {
   data: T

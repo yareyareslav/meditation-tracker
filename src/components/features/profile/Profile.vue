@@ -4,6 +4,8 @@ import MeditatorIcon from '@/components/icons/MeditatorIcon.vue'
 import SpiralIcon from '@/components/icons/SpiralIcon.vue'
 import YinYangIcon from '@/components/icons/YinYangIcon.vue'
 import FeelingCard from './FeelingCard.vue'
+import { useProfileStore } from '@/components/shared/stores/profile.store.ts'
+import { onMounted } from 'vue'
 
 const feelings = [
   {
@@ -23,6 +25,13 @@ const feelings = [
     text: 'Worried',
   },
 ]
+
+const profileStore = useProfileStore()
+
+onMounted(() => {
+  profileStore.fetchProfile()
+})
+
 </script>
 
 <template>
@@ -33,7 +42,9 @@ const feelings = [
       alt="avatar"
     />
     <div class="greetings">
-      <h2 class="greetings__welcome">Доброе пожаловать, Наталья!</h2>
+      <h2 class="greetings__welcome">
+        Доброе пожаловать, {{ profileStore.getProfile?.username }}!
+      </h2>
       <p class="greetings__feeling">Как вы себя сегодня чувстсвуете?</p>
     </div>
     <div class="feelings">
