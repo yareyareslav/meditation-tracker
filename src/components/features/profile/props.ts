@@ -1,5 +1,5 @@
 export type FeelingCardProps = {
   icon: any
   text: string
-  type: string
+  type: 'feeling_anxious' | 'feeling_calm' | 'feeling_relax' | 'feeling_focus'
 }

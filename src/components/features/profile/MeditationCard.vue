@@ -1,8 +1,15 @@
 <script setup lang="ts">
-import PlayIcon from '@/components/icons/PlayIcon.vue';
-import type { MeditationCardProps } from '@/typescript/meditation.types';
+import PlayIcon from '@/components/icons/PlayIcon.vue'
+import type { MeditationCardProps } from '@/typescript/meditation.types'
+import { useRouter } from 'vue-router'
 
-const { title, description, duration } = defineProps<MeditationCardProps>()
+const { id, title, description, duration } = defineProps<MeditationCardProps>()
+const router = useRouter()
+
+function startMeditation() {
+  router.push({ name: 'Meditation', params: { id } })
+}
+
 </script>
 
 <template>
@@ -12,7 +19,7 @@ const { title, description, duration } = defineProps<MeditationCardProps>()
       <p class="description">{{ description }}</p>
     </div>
     <footer class="footer">
-      <button class="btn-start">Start <PlayIcon /></button>
+      <button class="btn-start" @click="startMeditation">Start <PlayIcon /></button>
       <div class="duration">{{ duration }} min</div>
     </footer>
   </div>

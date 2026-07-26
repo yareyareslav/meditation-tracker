@@ -1,29 +1,14 @@
 <script setup lang="ts">
-import { API_ROUTES, client } from '@/components/shared/constants/api'
 import type { FeelingCardProps } from './props'
 import { ref } from 'vue'
+import { useStatsStore } from '@/components/shared/stores/stats.store'
 
 const { icon, text, type } = defineProps<FeelingCardProps>()
-const loading = ref(false)
 const success = ref<boolean | null>(null)
+const statsStore = useStatsStore()
 
 async function checkEmotion() {
-  if (success.value) {
-    return
-  }
-  loading.value = true
-  try {
-    await client().post(API_ROUTES.stats, {
-      type: type,
-      value: 1,
-    })
-    success.value = true
-  } catch (err) {
-    console.error(err)
-    success.value = false
-  } finally {
-    loading.value = false
-  }
+  success.value = await statsStore.saveEmotion(type)
 }
 </script>
 

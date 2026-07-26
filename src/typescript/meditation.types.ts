@@ -8,6 +8,7 @@ export type Meditation = {
 }
 
 export type MeditationCardProps = {
+  id: number;
   title: Meditation['title']
   description: Meditation['description']
   duration: Meditation['duration_min']

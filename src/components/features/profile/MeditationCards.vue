@@ -21,6 +21,7 @@ onMounted(() => {
       <MeditationCard
         v-for="meditation in meditationStore.meditations"
         :key="meditation.id"
+        :id="meditation.id"
         :title="meditation.title"
         :description="meditation.description"
         :duration="meditation.duration_min"
