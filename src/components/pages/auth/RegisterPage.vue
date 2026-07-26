@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import RegisterForm from '@/components/features/auth/RegisterForm.vue';
+
+</script>
+
 <template>
-  RegisterPage
+  <RegisterForm />
 </template>
+

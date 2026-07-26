@@ -1,0 +1,46 @@
+import axios from 'axios'
+import { useAuthStore } from '../stores/auth.store'
+
+const BACKEND_API = 'http://localhost:3000/api'
+
+export const API_ROUTES = {
+  meditations: `/meditations`,
+  register: `/auth/register`,
+  login: `/auth/login`,
+  profile: `/profile`,
+  stats: `/stats`,
+}
+
+export const http = axios.create({
+  baseURL: BACKEND_API,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+
+export function client() {
+  const authStore = useAuthStore()
+  return axios.create({
+    baseURL: BACKEND_API,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authStore.getToken}`,
+    },
+  })
+}
+
+export type Response<T> = {
+  data: T
+  status: string
+}
+
+export type User = {
+  id: number
+  email: string
+  username: string
+  last_login_at?: string
+}
+
+export type JWT = {
+  token: string
+}
