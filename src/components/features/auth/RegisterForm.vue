@@ -38,9 +38,9 @@ function register(e: Event) {
 
 <template>
   <form class="register-form" @submit="register">
-    <Input type="text" placeholder="Email" />
-    <Input type="text" placeholder="Login" />
-    <Input type="password" placeholder="Password" />
+    <Input type="text" placeholder="Email" v-model="form.email" />
+    <Input type="text" placeholder="Login" v-model="form.username" />
+    <Input type="password" placeholder="Password" v-model="form.password" />
     <Button class="register-form__button">Sign up</Button>
   </form>
   <RouterLink :to="{ name: 'Login' }">Log in</RouterLink>
